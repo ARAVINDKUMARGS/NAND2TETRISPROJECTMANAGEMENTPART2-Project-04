@@ -1,127 +1,100 @@
-# NAND2TETRISPROJECTMANAGEMENTPART2-Project-04
-PROJECT-04
+* **Project 4 = Hack Assembly (Machine Language) 
+# NAND2TETRIS – Project 4 (Machine Language Programming)
 
-# NAND2TETRISPROJECTMANAGEMENTPART2-Project-4
-
-## Project 4 – VM Translator
-
-**Project Code:** PROJECT04
-**Course:** Build a Modern Computer from First Principles (Nand2Tetris Part II)
-**Institution:** Hebrew University of Jerusalem
+## Course Information
+**Course:** Build a Modern Computer from First Principles: Nand to Tetris – Part II  
+**Institution:** Hebrew University of Jerusalem (Coursera)  
+**Project Code:** PROJECT-04
 
 ---
 
-## Overview
+## Project Overview
 
-Project 4 focuses on implementing a **Virtual Machine (VM) Translator**, which converts `.vm` files into **Hack assembly code** (`.asm`). This project is essential for building a higher-level abstraction over the Hack machine and forms the foundation for compiler and OS integration in later projects.
+Project 4 focuses on **low-level programming using the Hack assembly language**.  
+The objective is to write programs that run directly on the Hack computer, using only machine-level instructions.
 
-The VM Translator supports **arithmetic, logical, and memory access commands**, translating them into executable Hack assembly instructions.
-
----
-
-## Objectives
-
-* Parse `.vm` files and interpret VM commands.
-* Translate **arithmetic, logical, and memory commands** to Hack assembly code.
-* Support multiple `.vm` files in a single directory.
-* Test translated code using the **Hardware Simulator** or **CPU Emulator**.
+This project strengthens understanding of how software controls hardware without the help of high-level abstractions such as virtual machines or compilers.
 
 ---
 
-## Folder Structure
+## Project Objectives
+
+- Understand the Hack machine language specification
+- Use registers and RAM effectively
+- Implement loops and conditional branching
+- Interact with memory-mapped I/O (Screen and Keyboard)
+- Develop correct and efficient assembly programs
+
+---
+
+## Files Included
 
 ```
-Project4/
+
+Project-04/
+│── Mult.asm
+│── Fill.asm
 │── README.md
-│── src/
-│   └── VMTranslator.java
-│── test/
-│   ├── SimpleAdd.vm
-│   └── StackTest.vm
-│── output/
-│   └── SimpleAdd.asm
-│── docs/
-│   └── VMTranslatorGuide.pdf
+
 ```
+
+### File Descriptions
+
+- **Mult.asm**  
+  Multiplies the values stored in registers `R0` and `R1` and stores the result in `R2`.  
+  Assumes both input values are non-negative integers.
+
+- **Fill.asm**  
+  Continuously monitors keyboard input:
+  - Fills the screen with **black** when any key is pressed
+  - Clears the screen (**white**) when no key is pressed
 
 ---
 
-## Getting Started
+## Concepts Used
 
-### Step 1: Compile the Translator
-
-```bash
-cd Project4/src
-javac VMTranslator.java
-```
-
-### Step 2: Run the Translator on a VM File
-
-```bash
-java VMTranslator ../test/SimpleAdd.vm
-```
-
-### Step 3: Check Output
-
-* The `.asm` file will be generated in the `output/` folder.
-* Load the `.asm` file into the **Hardware Simulator** to verify correctness.
+- Hack Assembly Language
+- Registers (`R0`–`R15`)
+- RAM addressing
+- Labels and jump instructions
+- Loops and conditional execution
+- Screen and keyboard I/O handling
 
 ---
 
-## Supported Commands
+## How to Run the Programs
 
-### Arithmetic & Logical Commands
-
-* `add`, `sub`, `neg`
-* `eq`, `gt`, `lt`
-* `and`, `or`, `not`
-
-### Memory Access Commands
-
-* `push segment index`
-* `pop segment index`
-
-### Example
-
-**Input VM Code (SimpleAdd.vm):**
-
-```
-push constant 7
-push constant 8
-add
-```
-
-**Generated Hack Assembly (SimpleAdd.asm):**
-
-```asm
-@7
-D=A
-@SP
-A=M
-M=D
-...
-```
-
-This assembly code performs the addition operation correctly in the simulator.
+1. Open the **Hack CPU Emulator**
+2. Load the `.asm` file
+3. (For `Mult.asm`) Set values for `R0` and `R1`
+4. Run the program and observe results
 
 ---
 
 ## Notes
 
-* Ensure all input `.vm` files are correctly formatted according to VM language specifications.
-* Multiple `.vm` files can be translated together by running the translator on a directory.
-* This project is a **prerequisite for Project 7 (Jack Compiler)**, as the compiler outputs `.vm` code.
+- Programs strictly follow Hack machine language specifications
+- No high-level constructs (VM / Jack) are used
+- This project serves as the foundation for:
+  - VM Translator (Project 7)
+  - Jack Compiler
+  - Operating System implementation
 
 ---
 
 ## Author
 
 **Aravind Kumar GS**
-Email: `aravindkumar06062006@gmail.com`
+
+---
+
+## Completion Details
+
+Completed on: **December 28, 2025**  
+Final Grade: **93.60%**
 
 ---
 
 ## License
 
-Educational purposes only. Do not distribute or claim as your own work.
-
+This project is for **educational purposes only** as part of the Nand2Tetris course.
